@@ -1,0 +1,208 @@
+{
+	"info": {
+		"_postman_id": "caffe833-a290-498b-ba70-4d49a11c65df",
+		"name": "API-Collection-SyedShoaib",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Milestone 3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"User with Id 40 has userId value as 4\", function() {\r",
+							"    pm.expect(pm.response.json().filter(item => item.id == 40)[0].userId).to.equal(4)\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Every title field in the response has the type string\", function() {\r",
+							"    pm.response.json().forEach(item => pm.expect(item.title).to.be.a('string'))\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function() {\r",
+							"    pm.response.to.have.status(200)\r",
+							"})\r",
+							"\r",
+							"pm.test('Content-Type is \"application/json\"', function() {\r",
+							"    pm.response.to.be.header(\"Content-Type\", \"application/json; charset=utf-8\")\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Response time is less than 1000ms\", function() {\r",
+							"    pm.expect(pm.response.responseTime).be.lessThan(1000)\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{JsonPlaceHolder}}/posts",
+					"host": [
+						"{{JsonPlaceHolder}}"
+					],
+					"path": [
+						"posts"
+					]
+				},
+				"description": "Request for milestone 3 in Part B Major Assessment"
+			},
+			"response": []
+		},
+		{
+			"name": "Milestone 4",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"email\",\"amith.k@reqres.in\")\r",
+							"pm.environment.set(\"first_name\",\"Amit\")"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verified that email matches with the response\", function() {\r",
+							"    pm.expect(pm.response.json().email).to.equal(pm.environment.get('email'))\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Verified that first name matches with the response\", function() {\r",
+							"    pm.expect(pm.response.json().first_name).to.equal(pm.environment.get('first_name'))\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function() {\r",
+							"    pm.response.to.have.status(201)\r",
+							"})\r",
+							"\r",
+							"pm.test('Content-Type is \"application/json\"', function() {\r",
+							"    pm.response.to.be.header(\"Content-Type\", \"application/json; charset=utf-8\")\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Response time is less than 1000ms\", function() {\r",
+							"    pm.expect(pm.response.responseTime).be.lessThan(1000)\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n         \r\n            \"email\": \"{{email}}\",\r\n            \"first_name\": \"{{first_name}}\",\r\n            \"last_name\": \"K\",\r\n            \"avatar\": \"\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{RequestResponse}}/users",
+					"host": [
+						"{{RequestResponse}}"
+					],
+					"path": [
+						"users"
+					]
+				},
+				"description": "Request for milestone 4 in Part B Major Assessment"
+			},
+			"response": []
+		},
+		{
+			"name": "Milestone 5",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verified that first_name is updated succesfully\", function() {\r",
+							"    var Request = JSON.parse(pm.request.body.raw)\r",
+							"    var Response = pm.response.json()\r",
+							"    pm.expect(Response.first_name).to.equal(Request.first_name)\r",
+							"    pm.environment.set('first_name', Response.first_name)\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Verified that last_name is updated succesfully\", function() {\r",
+							"    var Request = JSON.parse(pm.request.body.raw)\r",
+							"    var Response = pm.response.json()\r",
+							"    pm.expect(Response.last_name).to.equal(Request.last_name)\r",
+							"    pm.environment.set('last_name', Response.last_name)\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Verified that email is updated succesfully\", function() {\r",
+							"    var Request = JSON.parse(pm.request.body.raw)\r",
+							"    var Response = pm.response.json()\r",
+							"    pm.expect(Response.email).to.equal(Request.email)\r",
+							"    pm.environment.set('last_name', Response.email)\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Verified that updatedAt field is present in response\", function() {\r",
+							"    pm.response.to.have.jsonBody(\"updatedAt\")\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function() {\r",
+							"    pm.response.to.have.status(200)\r",
+							"})\r",
+							"\r",
+							"pm.test('Content-Type is \"application/json\"', function() {\r",
+							"    pm.response.to.be.header(\"Content-Type\", \"application/json; charset=utf-8\")\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Response time is less than 1000ms\", function() {\r",
+							"    pm.expect(pm.response.responseTime).be.lessThan(1000)\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"amith.kumar@reqres.in\",\r\n    \"first_name\": \"Amith\",\r\n    \"last_name\": \"Kumar\",\r\n    \"avatar\": \"\",\r\n    \"id\": \"664\",\r\n    \"createdAt\": \"2022-02-15T15:18:16.933Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{RequestResponse}}/users/",
+					"host": [
+						"{{RequestResponse}}"
+					],
+					"path": [
+						"users",
+						""
+					]
+				},
+				"description": "Request for milestone 5 in Part B Major Assessment"
+			},
+			"response": []
+		}
+	]
+}

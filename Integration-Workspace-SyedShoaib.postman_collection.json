@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "d750edf6-dc77-4f75-98dc-07699b7ec1ae",
+		"name": "Integration-Workspace-SyedShoaib",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Milestone 1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Major-Assessment}}/users",
+					"host": [
+						"{{Major-Assessment}}"
+					],
+					"path": [
+						"users"
+					]
+				},
+				"description": "Request for milestone 1 in Part A of Major Assessment"
+			},
+			"response": []
+		},
+		{
+			"name": "Milestone 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{Major-Assessment}}/userdetails",
+					"host": [
+						"{{Major-Assessment}}"
+					],
+					"path": [
+						"userdetails"
+					]
+				},
+				"description": "Request for Milestone 2 in Part A of Major Assessment"
+			},
+			"response": []
+		},
+		{
+			"name": "Milestone 3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Major-Assessment}}/userid",
+					"host": [
+						"{{Major-Assessment}}"
+					],
+					"path": [
+						"userid"
+					]
+				},
+				"description": "Request for Milestone 3 in Part A of Major Assessment"
+			},
+			"response": []
+		},
+		{
+			"name": "Milestone 1 - Flow",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://major-assessment-syedshoaib-wblv.us-e2.cloudhub.io/milestone1",
+					"protocol": "http",
+					"host": [
+						"major-assessment-syedshoaib-wblv",
+						"us-e2",
+						"cloudhub",
+						"io"
+					],
+					"path": [
+						"milestone1"
+					]
+				},
+				"description": "Request for Milestone 1 - Flow in Part A of Major Assessment"
+			},
+			"response": []
+		},
+		{
+			"name": "Milestone 2 - Flow",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"post_id\": 2003\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "major-assessment-syedshoaib-wblv.us-e2.cloudhub.io/milestone2",
+					"host": [
+						"major-assessment-syedshoaib-wblv",
+						"us-e2",
+						"cloudhub",
+						"io"
+					],
+					"path": [
+						"milestone2"
+					]
+				},
+				"description": "Request for Milestone 2 - Flow in Part A of Major Assessment"
+			},
+			"response": []
+		},
+		{
+			"name": "Milestone 3 - Flow",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "major-assessment-syedshoaib-wblv.us-e2.cloudhub.io/milestone3",
+					"host": [
+						"major-assessment-syedshoaib-wblv",
+						"us-e2",
+						"cloudhub",
+						"io"
+					],
+					"path": [
+						"milestone3"
+					]
+				},
+				"description": "Request for Milestone 3 - Flow in Part A of Major Assessment"
+			},
+			"response": []
+		}
+	]
+}

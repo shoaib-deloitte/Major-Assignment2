@@ -1,0 +1,76 @@
+#%RAML 1.0
+types:
+  POSTRequestMileStoneDataType2:
+    properties:
+      post_id:
+        example: 2003
+        type: number
+        format: int
+  POSTResponseMileStoneDataType2:
+    properties:
+      Userdetails:
+        items:
+          properties:
+            post_id:
+              example: 2003
+              type: number
+              format: int
+            id:
+              example: 1
+              type: number
+              format: int
+            name:
+              example: Bhaaswar Pothuvaal III
+              type: string
+  GETMileStoneDataType1:
+    items:
+      properties:
+        id:
+          example: 2482
+          type: number
+          format: int
+        name:
+          example: Kartik Kocchar
+          type: string
+        email:
+          example: kartik_kocchar@rutherford.io
+          type: string
+        gender:
+          example: female
+          type: string
+        status:
+          example: inactive
+          type: string
+  GETMileStoneDataType3:
+    properties:
+      Name:
+        example: Gorakhanatha Chaturvedi
+        type: string
+      Status:
+        example: active
+        type: string
+      Gender:
+        example: female
+        type: string
+title: Major Assessment Syed Shoaib
+/milestone1:
+  get:
+    responses:
+      "200":
+        body:
+          application/json:
+            type: GETMileStoneDataType1
+/milestone2:
+  post:
+    body:
+      application/json:
+        type: POSTRequestMileStoneDataType2
+    responses:
+      "201": {}
+/milestone3:
+  get:
+    responses:
+      "200":
+        body:
+          application/json:
+            type: GETMileStoneDataType3
